@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Home</title>
+</head>
+
+<body>
+    <header>
+        <button class="homeButton">
+        </button>
+    </header>
+    <main>
+        <div class="backgroundImageLeft">
+            <div id="cabecalho">
+                <button onclick="goBack()" class="backButton">
+                </button>
+                <button class="avatarButton" src="./public/avatar.png">
+                </button>
+            </div>
+            <div id="chatPeople" class="chatPeople">
+
+            </div>
+            <div>
+            </div>
+        </div>
+        <div class="backgroundImageRight">
+            <div id="nomeNoTopo">
+                <img class="logo" src="./public/logoPetting.png">
+                <div id="text">
+                    <p> Petting
+                    </p>
+                </div>
+            </div>
+            <div>
+                <div id="oEspacoDoChat" class="oEspacoDoChat">
+                </div>
+
+            </div>
+            <div class="caixaDeTexto">
+                <input type="text" placeholder="Digite sua mensagem">
+                <button onclick="chat()" class="sendButton">
+                </button>
+            </div>
+        </div>
+    </main>
+</body>
+<script>
+    let idGlobal = null;
+    window.onload = function () {
+        if (localStorage.getItem('IdPetChat')) {
+            const data = JSON.parse(localStorage.getItem('Pets'));
+            const chatPeople = document.getElementById('chatPeople');
+
+            data.map((val, index) => {
+                if (val.chat) {
+                    const novoElemento = document.createElement('button');
+                    novoElemento.className = 'personButton';
+                    novoElemento.setAttribute('onclick', `chatPet(${index})`);
+                    novoElemento.innerHTML = `<div class="avatar1">
+                        <img src="${val.url}">
+                    </div>
+                    <div class="nome1">
+                        <p> ${val.name}</p>
+                    </div>`;
+
+                    chatPeople.appendChild(novoElemento);
+                }
+            });
+        };
+
+        if (JSON.parse(localStorage.getItem('chatSite'))) {
+            const data = JSON.parse(localStorage.getItem('chatSite'));
+            const imagemContainer = document.getElementById('oEspacoDoChat');
+            const id = localStorage.getItem('IdPetChat');
+
+            data.map((val) => {
+                if (val.IdPet === id.toString()) {
+                    if (val.user === "user") {
+                        const novoElemento = document.createElement('div');
+                        novoElemento.className = 'mensagemQueVai';
+                        novoElemento.innerHTML = `${val.chat}`;
+
+                        imagemContainer.appendChild(novoElemento);
+                    } else {
+                        const novoElemento = document.createElement('div');
+                        novoElemento.className = 'mensagemQueChega';
+                        novoElemento.innerHTML = `${val.chat}`;
+
+                        imagemContainer.appendChild(novoElemento);
+                    };
+                }
+            });
+        };
+    };
+
+    const chat = () => {
+        const inputValue = document.querySelectorAll('input');
+        const idUser = localStorage.getItem('idUser');
+        const chat = [];
+
+        if (localStorage.getItem('IdPetChat') && inputValue[0].value) {
+            const id = localStorage.getItem('IdPetChat');
+            if (JSON.parse(localStorage.getItem('chatSite'))) {
+                const data = JSON.parse(localStorage.getItem('chatSite'));
+
+                data.map((val, index) => {
+                    chat.push(val);
+                });
+            };
+            if (idGlobal != null) {
+                chat.push({ idUser: idUser, IdPet: id, user: "user", chat: inputValue[0].value });
+                window.localStorage.setItem("chatSite", JSON.stringify(chat));
+            } else {
+                chat.push({ idUser: idUser, IdPet: id, user: "user", chat: inputValue[0].value });
+                window.localStorage.setItem("chatSite", JSON.stringify(chat));
+            }
+            window.localStorage.setItem("chatSite", JSON.stringify(chat));
+            inputValue[0].value = "";
+            location.reload();
+        };
+    };
+
+    const chatPet = (id) => {
+        idGlobal = id;
+        if (JSON.parse(localStorage.getItem('chatSite'))) {
+            const data = JSON.parse(localStorage.getItem('chatSite'));
+            const imagemContainer = document.getElementById('oEspacoDoChat');
+            imagemContainer.innerHTML = ""
+
+            data.map((val) => {
+                if (val.IdPet === id.toString()) {
+                    if (val.user === "user") {
+                        const novoElemento = document.createElement('div');
+                        novoElemento.className = 'mensagemQueVai';
+                        novoElemento.innerHTML = `${val.chat}`;
+
+                        imagemContainer.appendChild(novoElemento);
+                    } else {
+                        const novoElemento = document.createElement('div');
+                        novoElemento.className = 'mensagemQueChega';
+                        novoElemento.innerHTML = `${val.chat}`;
+
+                        imagemContainer.appendChild(novoElemento);
+                    };
+                };
+            });
+            window.localStorage.setItem("IdPetChat", id);
+        };
+    }
+
+    const goBack = () => {
+        localStorage.removeItem('IdPetChat');
+        window.location.href = "../Match page_Home/index.html";
+    };
+
+</script>
+
+</html>

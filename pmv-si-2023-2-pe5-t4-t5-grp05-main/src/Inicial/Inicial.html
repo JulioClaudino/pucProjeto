@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pettingmatch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- CABEÇALHO -->
+    <div class="header">
+        <div class="home">
+            <button>
+                <img src="./public/logo.png" alt="não foi possivel carregar a imagem.">
+            </button>
+        </div>
+    </div>
+
+    <div class="text">
+        <h1> BEM-VINDO A PETTING
+        </h1>
+        <h2> Somos um site que acredita que há um humano certo para cada pet. Esperamos que cada um encontre seu lar,
+            criando realidades melhores que sonhos.
+        </h2>
+    </div>
+
+    <!-- Background azul da página geral -->
+    <div class="background">
+        <div class="home">
+        </div>
+    </div>
+
+    <!-- BOTÕES MATCH -->
+    <div class="button">
+        <!-- BOTÃO CÍRCULO -->
+        <button class="buttonx">
+            <img src="./public/iconcircle.png" alt="não foi possivel carregar a imagem.">
+        </button>
+        <!-- BOTÃO CORAÇÃO -->
+        <button class="buttonh">
+            <img src="./public/iconheart.png" alt="não foi possivel carregar a imagem.">
+        </button>
+        <!-- BOTÃO ESTRELA -->
+        <button class="buttone">
+            <img src="./public/iconstar.png" alt="não foi possivel carregar a imagem.">
+        </button>
+        <button onclick="login()" class="login">LOGIN
+        </button>
+    </div>
+
+    <!-- FOTOS PETS -->
+    <div class="background">
+        <div class="backgroundImage">
+            <img src="./public/pets.jpeg" alt="não foi possivel carregar a imagem.">
+        </div>
+    </div>
+</body>
+
+<script>
+    const login = () => {
+        window.location.href = "../Login/index.html";
+    };
+
+</script>
+
+</html>

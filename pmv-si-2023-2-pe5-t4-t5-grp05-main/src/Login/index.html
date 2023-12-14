@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petting</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="header">
+        <img class="logo" src="./public/images/logo.png" alt="não foi possivel carregar a image">
+    </div>
+    <div class="backgroundImage">
+        <div class="container">
+            <h1>Entrar</h1>
+            <form onsubmit="confirm(event)">
+                <input type="text" type="text" placeholder="Nome">
+                <input type="password" type="text" placeholder="Senha">
+                <a href="../Register/index.html">Cadastrar-se</a>
+                <button type="submit">ACESSAR</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+<script>
+    const confirm = (event) => {
+        event.preventDefault();
+        const data = JSON.parse(localStorage.getItem('Data'));
+        const inputValue = document.querySelectorAll('input');
+        let stop = false
+
+        data.map((val, index) => {
+            if (stop) return;
+
+            if (val.name === inputValue[0].value && val.password === inputValue[1].value) {
+                let idUser = index + 1;
+                window.localStorage.setItem("idUser", JSON.stringify(idUser));
+                stop = true;
+            };
+        });
+
+        if (!stop) {
+            alert("Usuario ou senha incorreta");
+        } else {
+            window.location.href = "../Match page_Home/index.html";
+        };
+    };
+
+</script>
+
+</html>

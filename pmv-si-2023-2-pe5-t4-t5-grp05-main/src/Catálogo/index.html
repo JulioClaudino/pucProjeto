@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petting Catálogo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- CABEÇALHO -->
+    <div class="header">
+        <div class="home">
+            <button>
+                <img src="./public/images/logo.png">
+            </button>
+        </div>
+    </div>
+
+    <!-- Background azul da página geral -->
+    <div class="background">
+        <div class="home">
+        </div>
+    </div>
+    <button onclick="chat()" class="buttone">
+
+    </button>
+    <!-- BOTÃO MAIS PET AZUL -->
+    <div class="button">
+        <button class="backgroundImageblue" onclick="addPet()">
+            <p>+ PET</p>
+        </button>
+    </div>
+    <div class="text">
+        <h1> Catálogo
+        </h1>
+    </div>
+    <div id="gridContainer" class="grid-container">
+    </div>
+</body>
+<script>
+    window.onload = function () {
+        const dataTemp = localStorage.getItem("Pets") ? JSON.parse(localStorage.getItem('Pets')) : [];
+        const imagemContainer = document.getElementById('gridContainer');
+
+        dataTemp.map((val) => {
+            const novoElemento = document.createElement('div');
+            novoElemento.className = 'grid-item';
+            novoElemento.innerHTML = `<button onclick="config(${val.id})"><img src="./public/images/engrenagem.png"></button>
+                        <div class="animal1"><img src="${val.url}" alt="Photo 1"></div>
+                        <p class="nome2">${val.name}</p>
+                        <p class="idade1">${val.year}</p>`;
+
+            imagemContainer.appendChild(novoElemento);
+        });
+    };
+
+    const addPet = () => {
+        if (localStorage.getItem("IdPet")) localStorage.removeItem("IdPet");
+        window.location.href = "../Upload/Upload.html";
+    };
+
+    const chat = () => {
+        window.location.href = "../Chat empresa pessoa/index.html";
+    };
+
+    const config = (val) => {
+        localStorage.setItem('IdPet', val);
+
+        window.location.href = "../Upload/Upload.html";
+    };
+
+</script>
+
+</html>

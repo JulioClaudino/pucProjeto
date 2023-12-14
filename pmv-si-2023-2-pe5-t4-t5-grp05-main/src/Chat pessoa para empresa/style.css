@@ -1,0 +1,236 @@
+body {
+  margin: 0%;
+  background-color: #d7e0ea;
+}
+
+header {
+  width: 100%;
+  height: 90px;
+  background-color: white;
+}
+
+.homeButton {
+  border: none;
+  width: 40px;
+  height: 40px;
+  margin-left: 20px;
+  margin-top: 20px;
+  background-image: url("./public/logoPetting.png");
+  background-size: cover;
+  background-color: white;
+}
+
+main {
+  height: calc(100vh - 90px);
+  display: grid;
+  grid-template-columns: auto 33% 1fr auto;
+  column-gap: 3%;
+  align-items: center;
+}
+
+/* CORPO DO SITE */
+
+/* PARTE DA ESQUERDA */
+
+.backgroundImageLeft {
+  grid-column: 2;
+  height: 90%;
+  background-color: rgba(97, 116, 165, 0.2);
+  border-radius: 40px;
+  display: grid;
+  grid-template-rows: 80px 1fr 80px;
+}
+
+.backgroundImageLeft > #cabecalho {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 0 50px auto;
+  column-gap: 15px;
+  align-items: center;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 100px;
+  width: 40px;
+  height: 40px;
+  background-image: url("./public/returnButton.png");
+  background-size: cover;
+  grid-column: 2;
+  margin: 0 auto;
+}
+
+.avatarButton {
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  background-image: url("./public/avatar.png");
+  background-size: cover;
+  margin: 0 auto;
+}
+
+.personButton {
+  display: grid;
+  grid-template-columns: auto 30% auto;
+  width: 100%;
+  height: 10%;
+  align-items: center;
+  background-color: #d9d9d9;
+  border: #aaaaaa 1px solid;
+}
+
+.personButton img {
+  width: 40px;
+  border-radius: 100%;
+}
+
+/* PARTE DA DIREITA */
+
+.backgroundImageRight {
+  height: 90%;
+  background-color: rgba(97, 116, 165, 0.2);
+  border-radius: 40px;
+  display: grid;
+  grid-template-rows: 80px 1fr 80px;
+}
+
+.backgroundImageRight > #nomeNoTopo {
+  height: 100%;
+  background-color: white;
+  border-top-right-radius: 40px;
+  border-top-left-radius: 40px;
+  display: grid;
+  grid-template-columns: 0 50px auto;
+  column-gap: 15px;
+  align-items: center;
+}
+
+#text {
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  text-overflow: inherit;
+}
+
+.logo {
+  width: 45px;
+  height: 45px;
+  margin: 0 auto;
+  border: #d9d9d9 1px solid;
+  border-radius: 100%;
+  grid-column: 2;
+}
+
+/* CHAT*/
+
+.oEspacoDoChat {
+  max-height: calc(100%-160px);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.mensagemQueChega {
+  background-color: #d9d9d9;
+  align-self: flex-start;
+  border-radius: 10px;
+  margin-top: 20px;
+  width: 60%;
+}
+
+.mensagemQueVai {
+  background-color: #d9d9d9;
+  margin: auto;
+  margin-right: 0;
+  margin-top: 20px;
+  border-radius: 10px;
+  width: 60%;
+}
+
+.caixaDeTexto {
+  height: 100%;
+  background-color: #d9d9d9;
+  border-bottom-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+}
+
+.caixaDeTexto {
+  display: grid;
+  grid-template-columns: auto 70% 20%;
+  align-self: left;
+  column-gap: 15px;
+}
+
+.caixaDeTexto > input {
+  border: 1px solid #d9d9d9;
+  grid-column: 2;
+  background-color: transparent;
+}
+
+.sendButton {
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 100px;
+  width: 40px;
+  height: 40px;
+  background-image: url("./public/sendButton.png");
+  background-size: cover;
+  margin: auto;
+}
+
+/* fotos usuarios */
+
+.avatar1 {
+  width: 40px;
+  border-radius: 100%;
+}
+
+.avatar2 {
+  width: 40px;
+  border-radius: 100%;
+}
+
+.avatar3 {
+  width: 40px;
+  border-radius: 100%;
+}
+
+.avatar4 {
+  width: 40px;
+  border-radius: 100%;
+}
+
+.avatar5 {
+  width: 40px;
+  border-radius: 100%;
+}
+
+.avatar6 {
+  width: 40px;
+  border-radius: 100%;
+}
+
+.avatar7 {
+  width: 40px;
+  border-radius: 100%;
+}
+
+.avatar8 {
+  width: 40px;
+  border-radius: 100%;
+}
+
+.avatar9 {
+  width: 40px;
+  border-radius: 100%;
+}
+
+.avatar10 {
+  width: 40px;
+  border-radius: 100%;
+}
